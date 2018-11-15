@@ -30,11 +30,15 @@ export class Vets extends React.Component {
 
         return (
             <div>
+                <div className="page-header">
+                    <h1>Vétérinaires</h1>
+                    <br></br>
+                </div>
                 {loading ? (
                     <h1>Loading...</h1>
                 ) : (
-                    <table className="table">
-                        <thead>
+                    <table className="table table-bordered">
+                        <thead className="thead-dark">
                         <tr>
                             <th>Firstname</th>
                             <th>Lastname</th>

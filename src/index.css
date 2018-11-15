@@ -26,3 +26,7 @@ nav {
   display: flex;
   list-style: none;
 }
+
+#content {
+    padding: 15px;
+}

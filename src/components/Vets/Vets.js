@@ -1,5 +1,6 @@
 import React from 'react';
 import {Vet} from './Vet';
+import {Specialty} from "./Specialty";
 
 export class Vets extends React.Component {
     state = {
@@ -11,7 +12,7 @@ export class Vets extends React.Component {
         this.setState({
             loading: true
         });
-        fetch('http://localhost:9999/api/v1/vets')
+        fetch('http://localhost:9998/api/v1/vets')
             .then(res => res.json())
             .then(vets => {
                 this.setState({
@@ -31,7 +32,7 @@ export class Vets extends React.Component {
         return (
             <div>
                 <div className="page-header">
-                    <h1>Vétérinaires</h1>
+                    <h1>Veterinaries</h1>
                     <br></br>
                 </div>
                 {loading ? (
@@ -40,8 +41,9 @@ export class Vets extends React.Component {
                     <table className="table table-bordered">
                         <thead className="thead-dark">
                         <tr>
-                            <th>Firstname</th>
-                            <th>Lastname</th>
+                            <th className="tableHeader">First name</th>
+                            <th className="tableHeader">Last name</th>
+                            <th className="tableHeader">Specialties</th>
                         </tr>
                         </thead>
                         <tbody>

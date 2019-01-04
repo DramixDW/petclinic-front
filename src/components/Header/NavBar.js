@@ -29,35 +29,25 @@ export default class NavBarElement extends React.Component {
     }
     render() {
         return (
-            <div>
-                <Navbar color="light" light expand="md">
-                    <NavbarBrand href="/">My Awesome Petclinic in React</NavbarBrand>
+            <div >
+                <Navbar color="light"  className="navtest" light expand="md">
+                    <NavbarBrand className="navcolor" href="/">My Petclinic</NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
-                                <Link className="nav-link" to="/vets">Vets</Link>
+                                <Link className="nav-link navcolor navbutton" to="/">Home</Link>
                             </NavItem>
                             <NavItem>
-                                <Link className="nav-link" to="/">Home</Link>
+                                <Link className="nav-link navcolor navbutton" to="/vets">Vets</Link>
                             </NavItem>
-                            <UncontrolledDropdown nav inNavbar>
-                                <DropdownToggle nav caret>
-                                    Options
-                                </DropdownToggle>
-                                <DropdownMenu right>
-                                    <DropdownItem>
-                                        Option 1
-                                    </DropdownItem>
-                                    <DropdownItem>
-                                        Option 2
-                                    </DropdownItem>
-                                    <DropdownItem divider />
-                                    <DropdownItem>
-                                        Reset
-                                    </DropdownItem>
-                                </DropdownMenu>
-                            </UncontrolledDropdown>
+                            <NavItem>
+                                <Link className="nav-link navcolor navbutton" to="/owners/find">Find owner</Link>
+                            </NavItem>
+                            <NavItem>
+                                <Link className="nav-link navcolor navbutton" to="/">Error</Link>
+                            </NavItem>
+
                         </Nav>
                     </Collapse>
                 </Navbar>

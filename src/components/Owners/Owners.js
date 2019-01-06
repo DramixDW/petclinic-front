@@ -1,12 +1,12 @@
 import React from 'react'
-import {Pets} from "../Owners/Pets";
+import {Link} from "react-router-dom";
 
 export const Owns = ({lastname,firstname,city,addres,telephone,pets}) => (
     <tr>
-        <td >{firstname} {lastname}</td>
+        <td ><Link to={"/owner?Lastname="+{lastname}}>{firstname} {lastname}</Link></td>
         <td >{addres}</td>
         <td> {city} </td>
         <td>{telephone}</td>
-        <td>{pets.map(pet => <Pets {...pet} key={pet.id} />)}</td>
+        <td>{pets.map(pet => pet.name + " ")}</td>
     </tr>
 );

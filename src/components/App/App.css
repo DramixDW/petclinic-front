@@ -39,3 +39,14 @@ input{
   margin : 15px;
   display: block;
 }
+
+.upperligne{
+  border-top: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  margin : 15px;
+}
+
+.bold{
+  font-weight: bold;
+}

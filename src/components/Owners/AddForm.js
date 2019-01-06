@@ -35,10 +35,17 @@ export class OwnersAddForm extends React.Component {
         console.log(data);
         fetch('http://localhost:9998/api/v1/addOwner', {
             method: 'post',
-            body : (data)
-        }).then(function (response) {
+            body : data,
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        }).then(function(response) {
             return response.json();
+        }).then(function(myJson) {
+            console.log(JSON.stringify(myJson));
         });
+        this.props.history.push('/Owners?Lastname='+this.state.lastname)
     };
 
     render(){

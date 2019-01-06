@@ -6,12 +6,12 @@ export class OwnersAddForm extends React.Component {
     constructor() {
         super();
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.state={
-            lastname:"",
-            firstname:"",
-            addres:"",
-            city:"",
-            telephone:"",
+        this.state= {
+            lastname: "",
+            firstname: "",
+            addres: "",
+            city: "",
+            telephone: "",
         }
     }
     handleLastname = (e) =>{
@@ -29,6 +29,7 @@ export class OwnersAddForm extends React.Component {
     handleTelephone = (e) =>{
         this.setState({telephone: e.target.value});
     };
+
     handleSubmit = (event) => {
         event.preventDefault();
         const data = JSON.stringify({"firstname": this.state.firstname, "lastname" : this.state.lastname, "addres" : this.state.addres, "city" : this.state.city, "telephone" : this.state.telephone});
@@ -43,8 +44,9 @@ export class OwnersAddForm extends React.Component {
         }).then(function(response) {
             return response.json();
         }).then(function(myJson) {
-                console.log(JSON.stringify(myJson));
-            });
+            console.log(JSON.stringify(myJson));
+        });
+        this.props.history.push('/Owners?Lastname='+this.state.lastname)
     };
 
     render(){

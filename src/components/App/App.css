@@ -47,6 +47,16 @@ input{
   margin : 15px;
 }
 
+.flexerino{
+  display: flex;
+  justify-content: space-between;
+  margin : 15px;
+}
+
 .bold{
   font-weight: bold;
+}
+
+.flexButton{
+  display: flex;
 }

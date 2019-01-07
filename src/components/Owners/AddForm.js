@@ -57,11 +57,11 @@ export class OwnersAddForm extends React.Component {
                 </div>
                 <div>
                     <form id="form" onSubmit={this.handleSubmit}>
-                        <p> Lastname <input id="lastname" className="big" type="texte" name="lastname" value={this.state.lastname} onChange={this.handleLastname}/> </p>
-                        <p> Firstname<input className="big" type="texte" name="firstname"  value={this.state.firstname} onChange={this.handlefirstname}/> </p>
-                        <p>Addres <input className="big" type="texte" name="addres"   value={this.state.addres} onChange={this.handleaddres}/> </p>
-                        <p> City <input className="big" type="texte" name="city"  value={this.state.city} onChange={this.handleCity}/> </p>
-                        <p> Telephone <input className="big" type="texte" name="telephone" value={this.state.telephone} onChange={this.handleTelephone}/> </p>
+                        <p> Lastname <input id="lastname" className="big" type="texte" name="lastname"  onChange={this.handleLastname}/> </p>
+                        <p> Firstname<input className="big" type="texte" name="firstname"   onChange={this.handlefirstname}/> </p>
+                        <p>Addres <input className="big" type="texte" name="addres"    onChange={this.handleaddres}/> </p>
+                        <p> City <input className="big" type="texte" name="city"   onChange={this.handleCity}/> </p>
+                        <p> Telephone <input className="big" type="texte" name="telephone"  onChange={this.handleTelephone}/> </p>
                         <input type="button" value="Add" onClick={this.handleSubmit} />
                     </form>
                 </div>

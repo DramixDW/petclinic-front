@@ -3,8 +3,6 @@ import {Own} from "./Owner";
 import {Pet} from "../Pets/Pet";
 import {Desc} from "../Pets/Visit";
 import {Date} from "../Pets/Date";
-import {Visit} from "../Visits/Visit";
-import {Vet} from "../Vets/Vet";
 
 export class OwnerInfo extends React.Component {
     state = {
@@ -78,7 +76,7 @@ export class OwnerInfo extends React.Component {
                     </div>
                     <div>
                         <div className="bold"> Visit Date</div>
-                        {/* pav.map(vis => <Date {...vis} key={vis.id} />)*/}
+                        {pav.map(vis => <Date {...vis} key={vis.id} />)}
                     </div>
                     <div>
                         <div className="bold">Description</div>

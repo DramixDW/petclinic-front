@@ -1,8 +1,6 @@
 import React from 'react';
 import {Own} from "./Owner";
 import {Pet} from "../Pets/Pet";
-import {Desc} from "../Pets/Visit";
-import {Date} from "../Pets/Date";
 
 export class OwnerInfo extends React.Component {
     state = {
@@ -76,7 +74,7 @@ export class OwnerInfo extends React.Component {
                             <h1>Pet and visit info</h1>
                         </div>
                         <div className="upperligne">
-                            {pav.map(pet => <Pet {...pet} key={pet.id} />)}
+                                {pav.map(pet => <Pet {...pet} key={pet.id} />)}
                         </div>
                     </div>
                 )}

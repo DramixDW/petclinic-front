@@ -1,5 +1,5 @@
 import React from 'react'
-import {Desc} from "./Visit";
+import {Visit} from "../Pets/Visit";
 
 export const Pet = ({name, birthDate, typeName , visits}) => (
     <div>
@@ -12,7 +12,11 @@ export const Pet = ({name, birthDate, typeName , visits}) => (
         <div className="flexerino">
             <div className="bold">Type</div><div>{typeName}</div>
         </div>
-
-        {visits.map(visit => visit.description)}
+        <div className="bold">
+            Visit
+        </div>
+        <div>
+        {visits.map(visit => <Visit {...visit} key={visit.visit_date} />)}
+        </div>
     </div>
 )

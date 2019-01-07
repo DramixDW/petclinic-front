@@ -6,6 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+    background-color: rgb(233,235,238);
 }
 
 code {
@@ -25,4 +26,31 @@ code {
 nav {
   display: flex;
   list-style: none;
+  background-color: rgb(47,48,48);
+  color : rgb(135, 167, 219);
+}
+
+.navtest{
+    background-color: rgb(47,48,48)!important;
+}
+
+.navcolor{
+    color:  rgb(110,150,210)!important;
+    border-radius: 10px;
+}
+
+.tableHeader{
+    color:  rgb(110,150,210)!important;
+}
+td{
+    width: 15%;
+    border-color: rgb(233,235,238);
+}
+.navbutton:hover{
+    background-color:rgb(0,0,0)!important;
+    transition-duration: 1s;
+}
+
+#content {
+    padding: 15px;
 }

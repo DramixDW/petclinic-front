@@ -30,3 +30,33 @@
     transform: rotate(360deg);
   }
 }
+
+.big{
+  width: 80%;
+}
+
+input{
+  margin : 16px;
+  display: block;
+}
+
+.upperligne{
+  border-top: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  margin : 15px;
+}
+
+.flexerino{
+  display: flex;
+  justify-content: space-between;
+  margin : 15px;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.flexButton{
+  display: flex;
+}

@@ -1,7 +1,7 @@
 import React from "react";
 
-export const Date = ({visit}) => (
+export const Date = ({visits}) => (
     <div>
-        {visit.map(vis => vis.date)}
+        {visits.map(vis => vis.visit_date)}
     </div>
 )

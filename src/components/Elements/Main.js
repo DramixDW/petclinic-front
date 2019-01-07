@@ -7,12 +7,14 @@ import {OwnersList} from "../Owners/OwnersList.js"
 import {OwnersAddForm} from "../Owners/AddForm";
 import {OwnerInfo} from "../Owners/Owner Info";
 import {OwnersEditForm} from "../Owners/EditForm";
+import {addPet} from "../Pets/addPet";
 
 const Main = () => (
     <main>
         <Switch>
             <Route exact path='/' component={HomeElement}/>
             <Route exact path='/vets' component={Vets}/>
+            <Route exact path='/pets/add' component={addPet}/>
             <Route exact path='/owners' component={OwnersList} />
             <Route exact path='/owners/find' component={OwnersFind}/>
             <Route exact path='/owners/add' component={OwnersAddForm}/>

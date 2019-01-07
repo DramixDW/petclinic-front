@@ -8,6 +8,7 @@ export class OwnerInfo extends React.Component {
     state = {
         loading: true,
         pav : null,
+        own : null,
         id : null
     };
 
@@ -23,18 +24,17 @@ export class OwnerInfo extends React.Component {
             .then(res => res.json())
             .then(own => {
                 this.setState({
-                    own,
-                    loading: false
+                    own
+                });
+                fetch('http://localhost:9998/api/v1/getPetWithVisitsByOwnerId?id='+token)
+                .then(res => res.json())
+                .then(pav => {
+                    this.setState({
+                        pav,
+                        loading: false
+                    })
                 })
             });
-        fetch('http://localhost:9998/api/v1/getPetWithVisitsByOwnerId?id='+token)
-            .then(res => res.json())
-            .then(pav => {
-                this.setState({
-                    pav,
-                    loading: false
-                })
-            })
         console.log(this.state.own);
     }
 
@@ -56,34 +56,26 @@ export class OwnerInfo extends React.Component {
                 {loading ? (
                     <h1>Loading...</h1>
                 ) : (
-                <div>
-                    <Own {...own} />
-                </div>)}
-                <div className="flexButton">
-                    <form>
-                        <input type="button" value="Edit Owner" onClick={this.handleEdit} />
-                    </form>
-                    <form>
-                        <input type="button" value="Add Pet" />
-                    </form>>
-                </div>
-                <div className="page-header">
-                    <h1>Pet and visit info</h1>
-                </div>
-                <div className="upperligne">
                     <div>
-                        <Pet {...pav}  />
+                        <div>
+                            <Own {...own} />
+                        </div>
+                        <div className="flexButton">
+                            <form>
+                                <input type="button" value="Edit Owner" onClick={this.handleEdit} />
+                            </form>
+                            <form>
+                                <input type="button" value="Add Pet" />
+                            </form>
+                        </div>
+                        <div className="page-header">
+                            <h1>Pet and visit info</h1>
+                        </div>
+                        <div className="upperligne">
+                            {pav.map(pet => <Pet {...pet} key={pet.id} />)}
+                        </div>
                     </div>
-                    <div>
-                        <div className="bold"> Visit Date</div>
-                        {pav.map(vis => <Date {...vis} key={vis.id} />)}
-                    </div>
-                    <div>
-                        <div className="bold">Description</div>
-                        {/* pav.map(vis => <Date {...vis} key={vis.id} />) */}
-                    </div>
-                </div>
-
+                )}
             </div>
         )
     }

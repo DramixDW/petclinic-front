@@ -46,6 +46,10 @@ export class OwnerInfo extends React.Component {
         this.props.history.push("/owner/edit?id="+this.state.id)
     );
 
+    handleAddPet = () => (
+        this.props.history.push("/pets/add?id="+this.state.id)
+    );
+
     render() {
         const { loading , own,pav} = this.state;
         return (
@@ -65,7 +69,7 @@ export class OwnerInfo extends React.Component {
                                 <input type="button" value="Edit Owner" onClick={this.handleEdit} />
                             </form>
                             <form>
-                                <input type="button" value="Add Pet" />
+                                <input type="button" value="Add Pet" onClick={this.handleAddPet} />
                             </form>
                         </div>
                         <div className="page-header">

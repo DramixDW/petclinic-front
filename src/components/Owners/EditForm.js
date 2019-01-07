@@ -6,21 +6,18 @@ export class OwnersEditForm extends React.Component {
     state = {
         loading: true,
         own: null,
+        lastname:null,
+        firstname: null,
+        addres: null,
+        city: null,
+        telephone: null,
+        id:null
     };
 
     constructor() {
         super();
         this.handleSubmit = this.handleSubmit.bind(this);
-
-        this.state= {
-            lastname:null,
-            firstname: null,
-            addres: null,
-            city: null,
-            telephone: null,
-            id:null
-        }
-    }
+    };
 
     componentDidMount() {
         const query = new URLSearchParams(this.props.location.search);
@@ -33,9 +30,8 @@ export class OwnersEditForm extends React.Component {
                     loading: false
                 })
             });
-        const owner = Object.assign({},this.state.own)
-        console.log(owner);
-    }
+
+    };
 
     handleLastname = (e) =>{
         this.setState({lastname: e.target.value});
@@ -53,9 +49,60 @@ export class OwnersEditForm extends React.Component {
         this.setState({telephone: e.target.value});
     };
 
-
-    handleSubmit = (event) => {
-        const data = JSON.stringify({"id": this.state.id,"firstname": this.state.firstname, "lastname" : this.state.lastname, "addres" : this.state.addres, "city" : this.state.city, "telephone" : this.state.telephone});
+    firstname = () => {
+        const {own} = this.state;
+        let owner = Object.assign({},own);
+        if(this.state.firstname == null){
+            return owner.firstname
+        }
+        else{
+            return this.state.firstname
+        }
+    };
+    addres = () => {
+        const {own} = this.state;
+        let owner = Object.assign({},own);
+        if(this.state.addres == null){
+            return owner.addres
+        }
+        else{
+            return this.state.addres
+        }
+    };
+    city = () => {
+        const {own} = this.state;
+        let owner = Object.assign({},own);
+        if(this.state.city == null){
+            return owner.city
+        }
+        else{
+            return this.state.city
+        }
+    };
+    lastname = () => {
+        const {own} = this.state;
+        let owner = Object.assign({},own);
+        if(this.state.lastname == null){
+            return owner.lastname
+        }
+        else{
+            return this.state.lastname
+        }
+    };
+    telephone = () => {
+        const {own} = this.state;
+        let owner = Object.assign({},own);
+        if(this.state.telephone == null){
+            return owner.telephone
+        }
+        else{
+            return this.state.telephone
+        }
+    };
+    handleSubmit = () => {
+        const {own} = this.state;
+        let owner = Object.assign({},own);
+        const data = JSON.stringify({"id": owner.id,"firstname": this.firstname(), "lastname" : this.lastname(), "addres" : this.addres(), "city" : this.city(), "telephone" : this.telephone()});
         console.log(data);
         fetch('http://localhost:9998/api/v1/editOwner', {
             method: 'post',
@@ -69,7 +116,7 @@ export class OwnersEditForm extends React.Component {
         }).then(function(myJson) {
             console.log(JSON.stringify(myJson));
         });
-        this.props.history.push('/Owners?Lastname='+this.state.lastname)
+        this.props.history.push('/Owners?Lastname='+this.lastname())
     };
 
     render(){

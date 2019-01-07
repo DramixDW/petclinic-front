@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export class addPet extends React.Component {
+export class AddPet extends React.Component {
 
     constructor() {
         super();

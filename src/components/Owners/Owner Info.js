@@ -1,6 +1,6 @@
 import React from 'react';
 import {Own} from "./Owner";
-import {Pet} from "../Pets/Pet";
+import {PetInfo} from "../Pets/PetInfo";
 
 export class OwnerInfo extends React.Component {
     state = {
@@ -14,7 +14,6 @@ export class OwnerInfo extends React.Component {
         const query = new URLSearchParams(this.props.location.search);
         const token = query.get('id');
         this.setState({ id : token});
-        console.log(token);
         this.setState({
             loading: true
         });
@@ -48,6 +47,8 @@ export class OwnerInfo extends React.Component {
         this.props.history.push("/pets/add?id="+this.state.id)
     );
 
+
+
     render() {
         const { loading , own,pav} = this.state;
         return (
@@ -74,7 +75,7 @@ export class OwnerInfo extends React.Component {
                             <h1>Pet and visit info</h1>
                         </div>
                         <div className="upperligne">
-                                {pav.map(pet => <Pet {...pet} key={pet.id} />)}
+                                {pav.map(pet => <PetInfo {...pet} key={pet.id} />)}
                         </div>
                     </div>
                 )}

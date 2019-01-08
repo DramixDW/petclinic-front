@@ -1,9 +1,8 @@
 import React from 'react'
 
-export const Visit = ({pet_id,visit_date,description}) => (
+export const Visit = ({visits}) => (
     <tr>
-        <td>{pet_id}</td>
-        <td>{visit_date}</td>
-        <td>{description}</td>
-    </tr>
+            <td>{visits.map(visit => <div>{visit.visit_date}</div> )}</td>
+            <td>{visits.map(visit => <div>{visit.description}</div>)}</td>
+            </tr>
 )

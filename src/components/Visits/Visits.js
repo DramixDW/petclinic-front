@@ -3,42 +3,33 @@ import {Visit} from './Visit';
 
 
 export class Visits extends React.Component {
-
-
-   //code qui marche 
+    
    
     state = {
         loading: true,
-        visits: null
+        petWithVisits: null
     };
 
+    constructor() {
+        super();
+    }
+
  componentDidMount() {
+
         this.setState({
             loading: true
         });
-        fetch('http://localhost:7879/api/visits/visit?pet_id=8')
+        
+        fetch('http://localhost:9998/api/v1/getPetByID?id=' + this.props.id)
             .then(res => res.json())
-            .then(visits => {
-                console.log(visits)
+            .then(petWithVisits => {
+                console.log(petWithVisits)
                 this.setState({
-                    visits,
+                    petWithVisits,
                     loading: false
                 })
             })
     }
-    
- /*  //////////////////////////////////////////////// // codée par Chloé
-    componentDidMount() {
-        var num = 8;
-        axios.get('http://localhost:9999/api/visits/visits?$num'  )
-            .then(res => res.json())
-            .then(visits => {
-                this.state({
-                    num
-                })
-            })
-    }//*/
-/////////////////////////////////////////////////////////////////////
 
 
     shouldComponentUpdate(prevProps, prevState) {
@@ -48,7 +39,7 @@ export class Visits extends React.Component {
 
 
     render() {
-        const {loading, visits} = this.state;
+        const {loading, petWithVisits} = this.state;
 
         return (
             <div>
@@ -56,17 +47,15 @@ export class Visits extends React.Component {
                     <h1>Loading...</h1>
                 ) : (
                     <div>
-                        <p>Previous Element</p>
                         <table className="table">
                             <thead>
                             <tr>
-                                <th>pet_id</th>
                                 <th>visit_date</th>
                                 <th>description</th>
                             </tr>
                             </thead>
-                            <tbody>
-                                {visits.map(visits => <Visit {...visits} key={Visits.pet_id /*firstname*/} />)}
+                            <tbody> 
+                                {<Visit visits={petWithVisits.visits} key={petWithVisits.id} /> }
                             </tbody>
                         </table>
                     </div>
@@ -78,35 +67,3 @@ export class Visits extends React.Component {
 
 
 
-// code qui marche pas 
-/*
-state = {
-    posts: []
-  }
-
-  componentDidMount() {
-    axios.get(`http://www.reddit.com/r/${this.props.subreddit}.json`)
-      .then(res => {
-        const posts = res.data.data.children.map(obj => obj.data);
-        this.setState({ posts });
-      });
-  }
-
-  render() {
-    return (
-      <div>
-        <h1>{`/r/${this.props.subreddit}`}</h1>
-        <ul>
-          {this.state.posts.map(post =>
-            <li key={post.id}>{post.title}</li>
-          )}
-        </ul>
-      </div>
-    );
-  }
-}
-
-ReactDOM.render(
-  <FetchDemo subreddit="reactjs"/>,
-  document.getElementById('root')
-);*/

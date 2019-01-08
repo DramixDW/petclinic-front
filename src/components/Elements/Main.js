@@ -9,6 +9,8 @@ import {OwnerInfo} from "../Owners/Owner Info";
 import {OwnersEditForm} from "../Owners/EditForm";
 import {AddPet} from "../Pets/addPet";
 import {EditPet} from "../Pets/editPet";
+import {PetsAndVisits} from "../Pets/PetsAndVisits";
+
 
 const Main = () => (
     <main>
@@ -22,6 +24,7 @@ const Main = () => (
             <Route exact path='/owners/add' component={OwnersAddForm}/>
             <Route exact path='/owner' component={OwnerInfo}/>
             <Route exact path='/owner/edit' component={OwnersEditForm}/>
+            <Route exact path='/visit/add' component={PetsAndVisits}/>
 
         </Switch>
     </main>
